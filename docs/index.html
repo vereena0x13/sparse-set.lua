@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>sparse-set.lua documentation</title>
+    <link rel="stylesheet" href="ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>sparse-set.lua</h1>
+
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><strong>sparse-set</strong></li>
+</ul>
+<h2>Topics</h2>
+<ul class="">
+  <li><a href="topics/README.md.html">README</a></li>
+</ul>
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><a href="examples/sparse-set_spec.lua.html">sparse-set_spec.lua</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>sparse-set</code></h1>
+<p>sparse-set
+ An efficient sparse set implementation (based on <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.30.7319&amp;rep=rep1&amp;type=pdf">An Efficient Representation for Sparse Sets</a>)</p>
+<p>
+
+</p>
+    <h3>Info:</h3>
+    <ul>
+        <li><strong>Copyright</strong>: Vereena Inara 2021-2024</li>
+        <li><strong>License</strong>: MIT</li>
+        <li><strong>Author</strong>: vereena0x13</li>
+    </ul>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#SparseIntSet:initialize">SparseIntSet:initialize (length)</a></td>
+	<td class="summary">Creates a <code>SparseIntSet</code> object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#SparseIntSet:contains">SparseIntSet:contains (x)</a></td>
+	<td class="summary">Checks if this <code>SparseIntSet</code> contains an element <code>x</code>.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#SparseIntSet:insert">SparseIntSet:insert (x)</a></td>
+	<td class="summary">Inserts an element <code>x</code> into the <code>SparseIntSet</code>.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#SparseIntSet:unordered_remove">SparseIntSet:unordered_remove (x)</a></td>
+	<td class="summary">Removes an element <code>x</code> from the <code>SparseIntSet</code>.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#SparseIntSet:ordered_remove">SparseIntSet:ordered_remove (x)</a></td>
+	<td class="summary">Removes an element <code>x</code> from the <code>SparseIntSet</code>, preserving insertion order.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#SparseIntSet:clear">SparseIntSet:clear ()</a></td>
+	<td class="summary">Removes all elements from the <code>SparseIntSet</code> in <code>O(n)</code> time.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#SparseIntSet:each">SparseIntSet:each (fn)</a></td>
+	<td class="summary">Calls the specified callback <code>fn</code> with each element in the <code>SparseIntSet</code>.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "SparseIntSet:initialize"></a>
+    <strong>SparseIntSet:initialize (length)</strong>
+    </dt>
+    <dd>
+    Creates a <code>SparseIntSet</code> object.
+ A <code>SparseIntSet</code> is an efficient representation of a set
+ that represents elements as positive integers in the range [1,N].
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">length</span>
+            <span class="types"><span class="type">number</span></span>
+         The maximum element the set may contain.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">SparseIntSet</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "SparseIntSet:contains"></a>
+    <strong>SparseIntSet:contains (x)</strong>
+    </dt>
+    <dd>
+    Checks if this <code>SparseIntSet</code> contains an element <code>x</code>.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "SparseIntSet:insert"></a>
+    <strong>SparseIntSet:insert (x)</strong>
+    </dt>
+    <dd>
+    Inserts an element <code>x</code> into the <code>SparseIntSet</code>.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        <code>true</code> if the element was inserted, <code>false</code> if it was already in the <code>SparseIntSet</code>.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "SparseIntSet:unordered_remove"></a>
+    <strong>SparseIntSet:unordered_remove (x)</strong>
+    </dt>
+    <dd>
+    Removes an element <code>x</code> from the <code>SparseIntSet</code>.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        <code>true</code> if the element was remove, <code>false</code> if it was not in the <code>SparseIntSet</code>.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "SparseIntSet:ordered_remove"></a>
+    <strong>SparseIntSet:ordered_remove (x)</strong>
+    </dt>
+    <dd>
+    Removes an element <code>x</code> from the <code>SparseIntSet</code>, preserving insertion order.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        <code>true</code> if the element was remove, <code>false</code> if it was not in the <code>SparseIntSet</code>.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "SparseIntSet:clear"></a>
+    <strong>SparseIntSet:clear ()</strong>
+    </dt>
+    <dd>
+    Removes all elements from the <code>SparseIntSet</code> in <code>O(n)</code> time.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "SparseIntSet:each"></a>
+    <strong>SparseIntSet:each (fn)</strong>
+    </dt>
+    <dd>
+    Calls the specified callback <code>fn</code> with each element in the <code>SparseIntSet</code>.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">fn</span>
+            <span class="types"><span class="type">function</span></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2024-05-23 16:04:25 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

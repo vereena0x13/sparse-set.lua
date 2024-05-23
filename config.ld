@@ -1,0 +1,10 @@
+project = "sparse-set.lua"
+description = ""
+full_description = ""
+title = "sparse-set.lua documentation"
+dir = "docs"
+style = true
+examples = { "./spec/sparse-set_spec.lua" }
+format = "discount"
+file = "./sparse-set"
+readme = "README.md"
