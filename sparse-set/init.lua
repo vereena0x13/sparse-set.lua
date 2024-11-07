@@ -83,7 +83,7 @@ function SparseIntSet:ordered_remove(x)
     return true
 end
 
---- Removes all elements from the `SparseIntSet` in `O(n)` time.
+--- Removes all elements from the `SparseIntSet` in `O(1)` time.
 function SparseIntSet:clear()
     self.count = 0
 end
