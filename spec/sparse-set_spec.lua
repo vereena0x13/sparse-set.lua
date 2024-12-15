@@ -1,93 +1,80 @@
--- luacheck: push no unused
-
 local assert    = require "luassert"
 
 describe("sparse-set.lua", function()
-    local sparse_set
     local SparseSet
 
     setup(function()
-        sparse_set = require "sparse-set"
+        local sparse_set = require "sparse-set"
+        SparseSet = sparse_set.SparseSet
     end)
 
     teardown(function()
-        sparse_set = nil
-    end)
-
-    it("loads", function()
-        SparseSet = sparse_set.SparseSet
-
-        assert(sparse_set ~= nil)
-        assert(SparseSet ~= nil)
+        SparseSet = nil
     end)
 
     describe("SparseSet", function()
         it("works", function()
             local s = SparseSet(100)
 
-            assert.are.equal(0, s.count)
+            assert.equal(0, s.count())
 
-            assert(s:insert(3))
-            assert(s:insert(5))
-            assert(s:insert(9))
-            assert(s:insert(42))
+            assert(s.insert(3))
+            assert(s.insert(5))
+            assert(s(9))
+            assert(s(42))
+            assert.is_false(s(9))
 
-            assert.are.equal(4, s.count)
-            assert(s:contains(3))
-            assert(s:contains(5))
-            assert(s:contains(9))
-            assert(s:contains(42))
+            assert.equal(4, s.count())
+            assert(s.contains(3))
+            assert(s.contains(5))
+            assert(s.contains(9))
+            assert(s.contains(42))
 
-            assert.is_false(s:contains(69))
+            assert.is_false(s.contains(69))
 
             do
                 local a = { 3, 5, 9, 42 }
-                local i = 1
-                s:each(function(x)
-                    assert.are.equal(a[i], x)
-                    i = i + 1
-                end)
+                for i, x in s.iter() do
+                    assert.equal(a[i], x)
+                end
             end
 
-            assert(s:unordered_remove(5))
+            assert(s.unordered_remove(5))
 
             do
                 local a = { 3, 42, 9 }
-                local i = 1
-                s:each(function(x)
-                    assert.are.equal(a[i], x)
-                    i = i + 1
-                end)
+                for i, x in s.iter() do
+                    assert.equal(a[i], x)
+                end
             end
 
-            assert(s:insert(1))
-            assert(s:insert(2))
-            assert(s:insert(4))
-            assert(s:insert(6))
-            assert(s:insert(100))
+            assert(s.insert(1))
+            assert(s.insert(2))
+            assert(s.insert(4))
+            assert(s.insert(6))
+            assert(s.insert(100))
 
-            assert(s:ordered_remove(3))
+            assert(s[1])
+            assert.is_false(s[27])
+
+            assert(s.ordered_remove(3))
 
             do
                 local a = { 42, 9, 1, 2, 4, 6, 100 }
-                local i = 1
-                s:each(function(x)
-                    assert.are.equal(a[i], x)
-                    i = i + 1
-                end)
+                for i, x in s.iter() do
+                    assert.equal(a[i], x)
+                end
             end
 
-            assert.are.equal(7, s.count)
+            assert.equal(7, s.count())
 
-            s:clear()
+            s.clear()
 
-            assert.are.equal(0, s.count)
+            assert.equal(0, s.count())
 
-            s:each(function(x)
+            for _, _ in s.iter() do
                 assert(false)
-            end)
+            end
         end)
     end)
 end)
-
--- luacheck: pop

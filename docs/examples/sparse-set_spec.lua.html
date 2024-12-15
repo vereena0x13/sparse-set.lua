@@ -48,106 +48,93 @@
 
     <h2>sparse-set_spec.lua</h2>
 <pre>
-<span class="comment">-- luacheck: push no unused
-</span>
 <span class="keyword">local</span> <span class="global">assert</span>    = <span class="global">require</span> <span class="string">"luassert"</span>
 
 describe(<span class="string">"sparse-set.lua"</span>, <span class="keyword">function</span>()
-    <span class="keyword">local</span> sparse_set
     <span class="keyword">local</span> SparseSet
 
     setup(<span class="keyword">function</span>()
-        sparse_set = <span class="global">require</span> <span class="string">"sparse-set"</span>
+        <span class="keyword">local</span> sparse_set = <span class="global">require</span> <span class="string">"sparse-set"</span>
+        SparseSet = sparse_set.SparseSet
     <span class="keyword">end</span>)
 
     teardown(<span class="keyword">function</span>()
-        sparse_set = <span class="keyword">nil</span>
-    <span class="keyword">end</span>)
-
-    it(<span class="string">"loads"</span>, <span class="keyword">function</span>()
-        SparseSet = sparse_set.SparseSet
-
-        <span class="global">assert</span>(sparse_set ~= <span class="keyword">nil</span>)
-        <span class="global">assert</span>(SparseSet ~= <span class="keyword">nil</span>)
+        SparseSet = <span class="keyword">nil</span>
     <span class="keyword">end</span>)
 
     describe(<span class="string">"SparseSet"</span>, <span class="keyword">function</span>()
         it(<span class="string">"works"</span>, <span class="keyword">function</span>()
             <span class="keyword">local</span> s = SparseSet(<span class="number">100</span>)
 
-            <span class="global">assert</span>.are.equal(<span class="number">0</span>, s.count)
+            <span class="global">assert</span>.equal(<span class="number">0</span>, s.count())
 
-            <span class="global">assert</span>(s:insert(<span class="number">3</span>))
-            <span class="global">assert</span>(s:insert(<span class="number">5</span>))
-            <span class="global">assert</span>(s:insert(<span class="number">9</span>))
-            <span class="global">assert</span>(s:insert(<span class="number">42</span>))
+            <span class="global">assert</span>(s.insert(<span class="number">3</span>))
+            <span class="global">assert</span>(s.insert(<span class="number">5</span>))
+            <span class="global">assert</span>(s(<span class="number">9</span>))
+            <span class="global">assert</span>(s(<span class="number">42</span>))
+            <span class="global">assert</span>.is_false(s(<span class="number">9</span>))
 
-            <span class="global">assert</span>.are.equal(<span class="number">4</span>, s.count)
-            <span class="global">assert</span>(s:contains(<span class="number">3</span>))
-            <span class="global">assert</span>(s:contains(<span class="number">5</span>))
-            <span class="global">assert</span>(s:contains(<span class="number">9</span>))
-            <span class="global">assert</span>(s:contains(<span class="number">42</span>))
+            <span class="global">assert</span>.equal(<span class="number">4</span>, s.count())
+            <span class="global">assert</span>(s.contains(<span class="number">3</span>))
+            <span class="global">assert</span>(s.contains(<span class="number">5</span>))
+            <span class="global">assert</span>(s.contains(<span class="number">9</span>))
+            <span class="global">assert</span>(s.contains(<span class="number">42</span>))
 
-            <span class="global">assert</span>.is_false(s:contains(<span class="number">69</span>))
+            <span class="global">assert</span>.is_false(s.contains(<span class="number">69</span>))
 
             <span class="keyword">do</span>
                 <span class="keyword">local</span> a = { <span class="number">3</span>, <span class="number">5</span>, <span class="number">9</span>, <span class="number">42</span> }
-                <span class="keyword">local</span> i = <span class="number">1</span>
-                s:each(<span class="keyword">function</span>(x)
-                    <span class="global">assert</span>.are.equal(a[i], x)
-                    i = i + <span class="number">1</span>
-                <span class="keyword">end</span>)
+                <span class="keyword">for</span> i, x <span class="keyword">in</span> s.iter() <span class="keyword">do</span>
+                    <span class="global">assert</span>.equal(a[i], x)
+                <span class="keyword">end</span>
             <span class="keyword">end</span>
 
-            <span class="global">assert</span>(s:unordered_remove(<span class="number">5</span>))
+            <span class="global">assert</span>(s.unordered_remove(<span class="number">5</span>))
 
             <span class="keyword">do</span>
                 <span class="keyword">local</span> a = { <span class="number">3</span>, <span class="number">42</span>, <span class="number">9</span> }
-                <span class="keyword">local</span> i = <span class="number">1</span>
-                s:each(<span class="keyword">function</span>(x)
-                    <span class="global">assert</span>.are.equal(a[i], x)
-                    i = i + <span class="number">1</span>
-                <span class="keyword">end</span>)
+                <span class="keyword">for</span> i, x <span class="keyword">in</span> s.iter() <span class="keyword">do</span>
+                    <span class="global">assert</span>.equal(a[i], x)
+                <span class="keyword">end</span>
             <span class="keyword">end</span>
 
-            <span class="global">assert</span>(s:insert(<span class="number">1</span>))
-            <span class="global">assert</span>(s:insert(<span class="number">2</span>))
-            <span class="global">assert</span>(s:insert(<span class="number">4</span>))
-            <span class="global">assert</span>(s:insert(<span class="number">6</span>))
-            <span class="global">assert</span>(s:insert(<span class="number">100</span>))
+            <span class="global">assert</span>(s.insert(<span class="number">1</span>))
+            <span class="global">assert</span>(s.insert(<span class="number">2</span>))
+            <span class="global">assert</span>(s.insert(<span class="number">4</span>))
+            <span class="global">assert</span>(s.insert(<span class="number">6</span>))
+            <span class="global">assert</span>(s.insert(<span class="number">100</span>))
 
-            <span class="global">assert</span>(s:ordered_remove(<span class="number">3</span>))
+            <span class="global">assert</span>(s[<span class="number">1</span>])
+            <span class="global">assert</span>.is_false(s[<span class="number">27</span>])
+
+            <span class="global">assert</span>(s.ordered_remove(<span class="number">3</span>))
 
             <span class="keyword">do</span>
                 <span class="keyword">local</span> a = { <span class="number">42</span>, <span class="number">9</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">100</span> }
-                <span class="keyword">local</span> i = <span class="number">1</span>
-                s:each(<span class="keyword">function</span>(x)
-                    <span class="global">assert</span>.are.equal(a[i], x)
-                    i = i + <span class="number">1</span>
-                <span class="keyword">end</span>)
+                <span class="keyword">for</span> i, x <span class="keyword">in</span> s.iter() <span class="keyword">do</span>
+                    <span class="global">assert</span>.equal(a[i], x)
+                <span class="keyword">end</span>
             <span class="keyword">end</span>
 
-            <span class="global">assert</span>.are.equal(<span class="number">7</span>, s.count)
+            <span class="global">assert</span>.equal(<span class="number">7</span>, s.count())
 
-            s:clear()
+            s.clear()
 
-            <span class="global">assert</span>.are.equal(<span class="number">0</span>, s.count)
+            <span class="global">assert</span>.equal(<span class="number">0</span>, s.count())
 
-            s:each(<span class="keyword">function</span>(x)
+            <span class="keyword">for</span> _, _ <span class="keyword">in</span> s.iter() <span class="keyword">do</span>
                 <span class="global">assert</span>(<span class="keyword">false</span>)
-            <span class="keyword">end</span>)
+            <span class="keyword">end</span>
         <span class="keyword">end</span>)
     <span class="keyword">end</span>)
-<span class="keyword">end</span>)
-
-<span class="comment">-- luacheck: pop</span></pre>
+<span class="keyword">end</span>)</pre>
 
 
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2024-12-15 12:45:54 </i>
+<i style="float:right;">Last updated 2024-12-15 14:09:24 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

@@ -67,32 +67,37 @@
 <h2><a href="#Functions">Functions</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#SparseSet:initialize">SparseSet:initialize (length)</a></td>
-	<td class="summary">Creates a <code>SparseSet</code> object.</td>
+	<td class="name" nowrap><a href="#SparseSet">SparseSet (length)</a></td>
+	<td class="summary">Creates a <a href="index.html#SparseSet">SparseSet</a> object.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#SparseSet:contains">SparseSet:contains (x)</a></td>
-	<td class="summary">Checks if this <code>SparseSet</code> contains an element <code>x</code>.</td>
+	<td class="name" nowrap><a href="#set.count">set.count ()</a></td>
+	<td class="summary">Returns the number of elements in this <a href="index.html#SparseSet">SparseSet</a>.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#SparseSet:insert">SparseSet:insert (x)</a></td>
-	<td class="summary">Inserts an element <code>x</code> into the <code>SparseSet</code>.</td>
+	<td class="name" nowrap><a href="#set.clear">set.clear ()</a></td>
+	<td class="summary">Removes all elements from the <a href="index.html#SparseSet">SparseSet</a> in <code>O(1)</code> time.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#SparseSet:unordered_remove">SparseSet:unordered_remove (x)</a></td>
-	<td class="summary">Removes an element <code>x</code> from the <code>SparseSet</code>.</td>
+	<td class="name" nowrap><a href="#set.contains">set.contains (x)</a></td>
+	<td class="summary">Checks if this <a href="index.html#SparseSet">SparseSet</a> contains an element <code>x</code>.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#SparseSet:ordered_remove">SparseSet:ordered_remove (x)</a></td>
-	<td class="summary">Removes an element <code>x</code> from the <code>SparseSet</code>, preserving insertion order.</td>
+	<td class="name" nowrap><a href="#set.insert">set.insert (x)</a></td>
+	<td class="summary">Inserts an element <code>x</code> into the <a href="index.html#SparseSet">SparseSet</a>.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#SparseSet:clear">SparseSet:clear ()</a></td>
-	<td class="summary">Removes all elements from the <code>SparseSet</code> in <code>O(1)</code> time.</td>
+	<td class="name" nowrap><a href="#set.unordered_remove">set.unordered_remove (x)</a></td>
+	<td class="summary">Removes an element <code>x</code> from the <a href="index.html#SparseSet">SparseSet</a>.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#SparseSet:each">SparseSet:each (fn)</a></td>
-	<td class="summary">Calls the specified callback <code>fn</code> with each element in the <code>SparseSet</code>.</td>
+	<td class="name" nowrap><a href="#set.ordered_remove">set.ordered_remove (x)</a></td>
+	<td class="summary">Removes an element <code>x</code> from the <a href="index.html#SparseSet">SparseSet</a>, preserving insertion order.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#set.iter">set.iter ()</a></td>
+	<td class="summary">Returns an iterator function over indices up to the current <a href="index.html#set.count">count</a> of this
+ <a href="index.html#SparseSet">SparseSet</a> as well as each associated element in the set.</td>
 	</tr>
 </table>
 
@@ -104,12 +109,12 @@
 
     <dl class="function">
     <dt>
-    <a name = "SparseSet:initialize"></a>
-    <strong>SparseSet:initialize (length)</strong>
+    <a name = "SparseSet"></a>
+    <strong>SparseSet (length)</strong>
     </dt>
     <dd>
-    Creates a <code>SparseSet</code> object.
- A <code>SparseSet</code> is an efficient representation of a set
+    Creates a <a href="index.html#SparseSet">SparseSet</a> object.
+ A <a href="index.html#SparseSet">SparseSet</a> is an efficient representation of a set
  that represents elements as positive integers in the range [1,N].
 
 
@@ -124,7 +129,7 @@
     <h3>Returns:</h3>
     <ol>
 
-           <span class="types"><span class="type">SparseSet</span></span>
+           <span class="types"><a class="type" href="index.html#SparseSet">SparseSet</a></span>
 
 
 
@@ -135,11 +140,47 @@
 
 </dd>
     <dt>
-    <a name = "SparseSet:contains"></a>
-    <strong>SparseSet:contains (x)</strong>
+    <a name = "set.count"></a>
+    <strong>set.count ()</strong>
     </dt>
     <dd>
-    Checks if this <code>SparseSet</code> contains an element <code>x</code>.
+    Returns the number of elements in this <a href="index.html#SparseSet">SparseSet</a>.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "set.clear"></a>
+    <strong>set.clear ()</strong>
+    </dt>
+    <dd>
+    Removes all elements from the <a href="index.html#SparseSet">SparseSet</a> in <code>O(1)</code> time.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "set.contains"></a>
+    <strong>set.contains (x)</strong>
+    </dt>
+    <dd>
+    Checks if this <a href="index.html#SparseSet">SparseSet</a> contains an element <code>x</code>.
 
 
     <h3>Parameters:</h3>
@@ -166,11 +207,11 @@
 
 </dd>
     <dt>
-    <a name = "SparseSet:insert"></a>
-    <strong>SparseSet:insert (x)</strong>
+    <a name = "set.insert"></a>
+    <strong>set.insert (x)</strong>
     </dt>
     <dd>
-    Inserts an element <code>x</code> into the <code>SparseSet</code>.
+    Inserts an element <code>x</code> into the <a href="index.html#SparseSet">SparseSet</a>.
 
 
     <h3>Parameters:</h3>
@@ -187,7 +228,7 @@
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
-        <code>true</code> if the element was inserted, <code>false</code> if it was already in the <code>SparseSet</code>.
+        <code>true</code> if the element was inserted, <code>false</code> if it was already in the <a href="index.html#SparseSet">SparseSet</a>.
     </ol>
 
 
@@ -195,11 +236,11 @@
 
 </dd>
     <dt>
-    <a name = "SparseSet:unordered_remove"></a>
-    <strong>SparseSet:unordered_remove (x)</strong>
+    <a name = "set.unordered_remove"></a>
+    <strong>set.unordered_remove (x)</strong>
     </dt>
     <dd>
-    Removes an element <code>x</code> from the <code>SparseSet</code>.
+    Removes an element <code>x</code> from the <a href="index.html#SparseSet">SparseSet</a>.
 
 
     <h3>Parameters:</h3>
@@ -216,7 +257,7 @@
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
-        <code>true</code> if the element was remove, <code>false</code> if it was not in the <code>SparseSet</code>.
+        <code>true</code> if the element was removed, <code>false</code> if it was not in the <a href="index.html#SparseSet">SparseSet</a>.
     </ol>
 
 
@@ -224,11 +265,11 @@
 
 </dd>
     <dt>
-    <a name = "SparseSet:ordered_remove"></a>
-    <strong>SparseSet:ordered_remove (x)</strong>
+    <a name = "set.ordered_remove"></a>
+    <strong>set.ordered_remove (x)</strong>
     </dt>
     <dd>
-    Removes an element <code>x</code> from the <code>SparseSet</code>, preserving insertion order.
+    Removes an element <code>x</code> from the <a href="index.html#SparseSet">SparseSet</a>, preserving insertion order.
 
 
     <h3>Parameters:</h3>
@@ -245,7 +286,7 @@
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
-        <code>true</code> if the element was remove, <code>false</code> if it was not in the <code>SparseSet</code>.
+        <code>true</code> if the element was removed, <code>false</code> if it was not in the <a href="index.html#SparseSet">SparseSet</a>.
     </ol>
 
 
@@ -253,37 +294,23 @@
 
 </dd>
     <dt>
-    <a name = "SparseSet:clear"></a>
-    <strong>SparseSet:clear ()</strong>
+    <a name = "set.iter"></a>
+    <strong>set.iter ()</strong>
     </dt>
     <dd>
-    Removes all elements from the <code>SparseSet</code> in <code>O(1)</code> time.
+    Returns an iterator function over indices up to the current <a href="index.html#set.count">count</a> of this
+ <a href="index.html#SparseSet">SparseSet</a> as well as each associated element in the set.
 
 
 
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">function</span></span>
 
 
 
-
-</dd>
-    <dt>
-    <a name = "SparseSet:each"></a>
-    <strong>SparseSet:each (fn)</strong>
-    </dt>
-    <dd>
-    Calls the specified callback <code>fn</code> with each element in the <code>SparseSet</code>.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">fn</span>
-            <span class="types"><span class="type">function</span></span>
-
-
-
-        </li>
-    </ul>
-
+    </ol>
 
 
 
@@ -296,7 +323,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2024-12-15 12:45:54 </i>
+<i style="float:right;">Last updated 2024-12-15 14:09:24 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
