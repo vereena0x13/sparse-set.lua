@@ -19,8 +19,8 @@ local function errorf(...) return error(sprintf(...)) end
 
 
 local function check_integer(x)
-    if type(x) ~= "number" or x ~= math_floor(x) then 
-        errorf("expected positive integer, got %s", tostring(x)) 
+    if type(x) ~= "number" or x ~= math_floor(x) then
+        errorf("expected positive integer, got %s", tostring(x))
     end
 end
 
@@ -67,8 +67,8 @@ function SparseSet(length)
         check_integer(x)
         check_bounds(x)
         local s = sparse[x]
-        return x <= length and 
-               s <= count and 
+        return x <= length and
+               s <= count and
                dense[s] == x
     end
     local set_contains = set.contains
@@ -131,7 +131,7 @@ function SparseSet(length)
         return function()
             if i >= count then return end
             i = i + 1
-            return i, dense[i] 
+            return i, dense[i]
         end
     end
 

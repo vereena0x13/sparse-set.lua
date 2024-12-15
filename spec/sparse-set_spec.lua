@@ -72,9 +72,7 @@ describe("sparse-set.lua", function()
 
             assert.equal(0, s.count())
 
-            for _, _ in s.iter() do
-                assert(false)
-            end
+            assert.equal(nil, s.iter()())
         end)
     end)
 end)
