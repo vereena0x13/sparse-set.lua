@@ -27,7 +27,7 @@ dependencies = {
 build = {
     type = "builtin",
     modules = {
-        ["sparse-set"] = "sparse-set/init.lua"
+        ["sparse-set"] = "sparse-set.lua"
     },
     copy_directories = {
         "docs",
