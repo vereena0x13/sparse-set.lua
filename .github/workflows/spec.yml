@@ -7,7 +7,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        luaVersion: ["5.4", "5.3", "5.2", "5.1", "luajit", "luajit-openresty"]
+        luaVersion: ["5.4", "5.3", "5.2", "5.1", "luajit-2.0.5", "luajit-openresty"]
     runs-on: ubuntu-latest
     
     steps:
@@ -26,7 +26,7 @@ jobs:
 
     - name: Setup ‘lua’
       if: steps.cache-deps.outputs.cache-hit != 'true'
-      uses: leafo/gh-actions-lua@v8
+      uses: leafo/gh-actions-lua@v10
       with:
         luaVersion: ${{ matrix.luaVersion }}
 
