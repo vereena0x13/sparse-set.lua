@@ -9,7 +9,7 @@ source = {
 }
 
 description = {
-    summary = "",
+    summary = "An efficient sparse set implementation",
     homepage = "https://github.com/vereena0x13/sparse-set.lua",
     issues_url = "https://github.com/vereena0x13/sparse-set.lua/issues",
     maintainer = "vereena0x13",

@@ -67,32 +67,32 @@
 <h2><a href="#Functions">Functions</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#SparseIntSet:initialize">SparseIntSet:initialize (length)</a></td>
-	<td class="summary">Creates a <code>SparseIntSet</code> object.</td>
+	<td class="name" nowrap><a href="#SparseSet:initialize">SparseSet:initialize (length)</a></td>
+	<td class="summary">Creates a <code>SparseSet</code> object.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#SparseIntSet:contains">SparseIntSet:contains (x)</a></td>
-	<td class="summary">Checks if this <code>SparseIntSet</code> contains an element <code>x</code>.</td>
+	<td class="name" nowrap><a href="#SparseSet:contains">SparseSet:contains (x)</a></td>
+	<td class="summary">Checks if this <code>SparseSet</code> contains an element <code>x</code>.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#SparseIntSet:insert">SparseIntSet:insert (x)</a></td>
-	<td class="summary">Inserts an element <code>x</code> into the <code>SparseIntSet</code>.</td>
+	<td class="name" nowrap><a href="#SparseSet:insert">SparseSet:insert (x)</a></td>
+	<td class="summary">Inserts an element <code>x</code> into the <code>SparseSet</code>.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#SparseIntSet:unordered_remove">SparseIntSet:unordered_remove (x)</a></td>
-	<td class="summary">Removes an element <code>x</code> from the <code>SparseIntSet</code>.</td>
+	<td class="name" nowrap><a href="#SparseSet:unordered_remove">SparseSet:unordered_remove (x)</a></td>
+	<td class="summary">Removes an element <code>x</code> from the <code>SparseSet</code>.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#SparseIntSet:ordered_remove">SparseIntSet:ordered_remove (x)</a></td>
-	<td class="summary">Removes an element <code>x</code> from the <code>SparseIntSet</code>, preserving insertion order.</td>
+	<td class="name" nowrap><a href="#SparseSet:ordered_remove">SparseSet:ordered_remove (x)</a></td>
+	<td class="summary">Removes an element <code>x</code> from the <code>SparseSet</code>, preserving insertion order.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#SparseIntSet:clear">SparseIntSet:clear ()</a></td>
-	<td class="summary">Removes all elements from the <code>SparseIntSet</code> in <code>O(n)</code> time.</td>
+	<td class="name" nowrap><a href="#SparseSet:clear">SparseSet:clear ()</a></td>
+	<td class="summary">Removes all elements from the <code>SparseSet</code> in <code>O(1)</code> time.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#SparseIntSet:each">SparseIntSet:each (fn)</a></td>
-	<td class="summary">Calls the specified callback <code>fn</code> with each element in the <code>SparseIntSet</code>.</td>
+	<td class="name" nowrap><a href="#SparseSet:each">SparseSet:each (fn)</a></td>
+	<td class="summary">Calls the specified callback <code>fn</code> with each element in the <code>SparseSet</code>.</td>
 	</tr>
 </table>
 
@@ -104,12 +104,12 @@
 
     <dl class="function">
     <dt>
-    <a name = "SparseIntSet:initialize"></a>
-    <strong>SparseIntSet:initialize (length)</strong>
+    <a name = "SparseSet:initialize"></a>
+    <strong>SparseSet:initialize (length)</strong>
     </dt>
     <dd>
-    Creates a <code>SparseIntSet</code> object.
- A <code>SparseIntSet</code> is an efficient representation of a set
+    Creates a <code>SparseSet</code> object.
+ A <code>SparseSet</code> is an efficient representation of a set
  that represents elements as positive integers in the range [1,N].
 
 
@@ -124,7 +124,7 @@
     <h3>Returns:</h3>
     <ol>
 
-           <span class="types"><span class="type">SparseIntSet</span></span>
+           <span class="types"><span class="type">SparseSet</span></span>
 
 
 
@@ -135,11 +135,11 @@
 
 </dd>
     <dt>
-    <a name = "SparseIntSet:contains"></a>
-    <strong>SparseIntSet:contains (x)</strong>
+    <a name = "SparseSet:contains"></a>
+    <strong>SparseSet:contains (x)</strong>
     </dt>
     <dd>
-    Checks if this <code>SparseIntSet</code> contains an element <code>x</code>.
+    Checks if this <code>SparseSet</code> contains an element <code>x</code>.
 
 
     <h3>Parameters:</h3>
@@ -166,11 +166,11 @@
 
 </dd>
     <dt>
-    <a name = "SparseIntSet:insert"></a>
-    <strong>SparseIntSet:insert (x)</strong>
+    <a name = "SparseSet:insert"></a>
+    <strong>SparseSet:insert (x)</strong>
     </dt>
     <dd>
-    Inserts an element <code>x</code> into the <code>SparseIntSet</code>.
+    Inserts an element <code>x</code> into the <code>SparseSet</code>.
 
 
     <h3>Parameters:</h3>
@@ -187,7 +187,7 @@
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
-        <code>true</code> if the element was inserted, <code>false</code> if it was already in the <code>SparseIntSet</code>.
+        <code>true</code> if the element was inserted, <code>false</code> if it was already in the <code>SparseSet</code>.
     </ol>
 
 
@@ -195,11 +195,11 @@
 
 </dd>
     <dt>
-    <a name = "SparseIntSet:unordered_remove"></a>
-    <strong>SparseIntSet:unordered_remove (x)</strong>
+    <a name = "SparseSet:unordered_remove"></a>
+    <strong>SparseSet:unordered_remove (x)</strong>
     </dt>
     <dd>
-    Removes an element <code>x</code> from the <code>SparseIntSet</code>.
+    Removes an element <code>x</code> from the <code>SparseSet</code>.
 
 
     <h3>Parameters:</h3>
@@ -216,7 +216,7 @@
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
-        <code>true</code> if the element was remove, <code>false</code> if it was not in the <code>SparseIntSet</code>.
+        <code>true</code> if the element was remove, <code>false</code> if it was not in the <code>SparseSet</code>.
     </ol>
 
 
@@ -224,11 +224,11 @@
 
 </dd>
     <dt>
-    <a name = "SparseIntSet:ordered_remove"></a>
-    <strong>SparseIntSet:ordered_remove (x)</strong>
+    <a name = "SparseSet:ordered_remove"></a>
+    <strong>SparseSet:ordered_remove (x)</strong>
     </dt>
     <dd>
-    Removes an element <code>x</code> from the <code>SparseIntSet</code>, preserving insertion order.
+    Removes an element <code>x</code> from the <code>SparseSet</code>, preserving insertion order.
 
 
     <h3>Parameters:</h3>
@@ -245,7 +245,7 @@
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
-        <code>true</code> if the element was remove, <code>false</code> if it was not in the <code>SparseIntSet</code>.
+        <code>true</code> if the element was remove, <code>false</code> if it was not in the <code>SparseSet</code>.
     </ol>
 
 
@@ -253,11 +253,11 @@
 
 </dd>
     <dt>
-    <a name = "SparseIntSet:clear"></a>
-    <strong>SparseIntSet:clear ()</strong>
+    <a name = "SparseSet:clear"></a>
+    <strong>SparseSet:clear ()</strong>
     </dt>
     <dd>
-    Removes all elements from the <code>SparseIntSet</code> in <code>O(n)</code> time.
+    Removes all elements from the <code>SparseSet</code> in <code>O(1)</code> time.
 
 
 
@@ -267,11 +267,11 @@
 
 </dd>
     <dt>
-    <a name = "SparseIntSet:each"></a>
-    <strong>SparseIntSet:each (fn)</strong>
+    <a name = "SparseSet:each"></a>
+    <strong>SparseSet:each (fn)</strong>
     </dt>
     <dd>
-    Calls the specified callback <code>fn</code> with each element in the <code>SparseIntSet</code>.
+    Calls the specified callback <code>fn</code> with each element in the <code>SparseSet</code>.
 
 
     <h3>Parameters:</h3>
@@ -296,7 +296,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2024-05-23 16:04:25 </i>
+<i style="float:right;">Last updated 2024-12-15 12:00:11 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

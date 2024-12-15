@@ -4,7 +4,7 @@ local assert    = require "luassert"
 
 describe("sparse-set.lua", function()
     local sparse_set
-    local SparseIntSet
+    local SparseSet
 
     setup(function()
         sparse_set = require "sparse-set"
@@ -15,15 +15,15 @@ describe("sparse-set.lua", function()
     end)
 
     it("loads", function()
-        SparseIntSet = sparse_set.SparseIntSet
+        SparseSet = sparse_set.SparseSet
 
         assert(sparse_set ~= nil)
-        assert(SparseIntSet ~= nil)
+        assert(SparseSet ~= nil)
     end)
 
-    describe("SparseIntSet", function()
+    describe("SparseSet", function()
         it("works", function()
-            local s = SparseIntSet(100)
+            local s = SparseSet(100)
 
             assert.are.equal(0, s.count)
 

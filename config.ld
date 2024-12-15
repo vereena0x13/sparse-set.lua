@@ -6,5 +6,5 @@ dir = "docs"
 style = true
 examples = { "./spec/sparse-set_spec.lua" }
 format = "discount"
-file = "./sparse-set"
+file = "sparse-set.lua"
 readme = "README.md"
