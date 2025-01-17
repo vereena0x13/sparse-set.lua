@@ -4,7 +4,7 @@
 -- @module sparse-set
 -- @author vereena0x13
 -- @license MIT
--- @copyright Vereena Inara 2021-2024
+-- @copyright Vereena Inara 2021-2025
 
 
 local type          = type
@@ -160,7 +160,7 @@ return setmetatable({
     _LICENSE        = [[
         MIT LICENSE
 
-        Copyright (c) 2021-2024 Vereena Inara
+        Copyright (c) 2021-2025 Vereena Inara
 
         Permission is hereby granted, free of charge, to any person obtaining a
         copy of this software and associated documentation files (the
